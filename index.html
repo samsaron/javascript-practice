@@ -1,0 +1,59 @@
+<html>
+<head>
+    <style>
+    p {
+        font-size: 18px;
+        font-style: italic;
+    }
+    h2 {
+        font-size: 25;
+    }
+    </style>
+
+    <title>Joe's Hotdogs</title>
+    <h1><strong>Welcome to Joe's Hotdogs!</strong><h1>
+    <h2> <u>Your Order</u>: <h2>
+
+    <!-- ID tag teach piece of needed information -->
+    <p id="dogs"></p>
+    <p id="fries"></p>
+    <p id="sodas"></p>
+    <p id="sale"></p>
+    <p id="subtotal"></p>
+    <p id="tax"></p>
+    <p id="total"></p>
+
+</head>
+<body>
+<script language = "javascript">
+
+    <!-- Ask user how many of each item they would like -->
+    var dogs = prompt("How many hotdogs?");
+    var fries = prompt("How many fries?");
+    var sodas = prompt("How many sodas?");
+
+    <!-- Assign variables for each cost -->
+    var dogs_p = dogs * 3.25;
+    var fries_p = fries * 2;
+    var sodas_p = sodas * 1.5;
+    var subtotal = dogs_p + fries_p + sodas_p;
+    var sale = " ";
+    if (subtotal >= 20) {
+        subtotal = subtotal * .9;
+        var sale = "You qualified for our 10% discount.";
+    }
+    var tax = subtotal * 0.0625;
+    var total = subtotal + tax;
+
+    <!-- Print Sale Information -->
+    document.getElementById("dogs").innerHTML = "# Hotdogs: " + dogs + " at $3.25 is $" + dogs_p.toFixed(2);
+    document.getElementById("fries").innerHTML = "# Fries: " + fries + " at $2.00 is $" + fries_p.toFixed(2);
+    document.getElementById("sodas").innerHTML = "# Sodas: " + sodas + " at $1.50 is $" + sodas_p.toFixed(2);
+    document.getElementById("sale").innerHTML = sale;
+    document.getElementById("subtotal").innerHTML = "Subtotal: $" + subtotal.toFixed(2);
+    document.getElementById("tax").innerHTML = "Meals Tax: $" + tax.toFixed(2);
+    document.getElementById("total").innerHTML = "Total: $" + total.toFixed(2);
+
+</script>
+</body>
+</html>
